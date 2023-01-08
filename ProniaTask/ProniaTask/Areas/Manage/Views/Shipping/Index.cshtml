@@ -1,0 +1,31 @@
+﻿@model ICollection<Shipping>
+<div class="container">
+	<div class="card mt-5">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Logo</th>
+						<th>Title</th>
+						<th>Description</th>
+						<th colspan="2">Operation</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (Shipping s in Model)
+					{
+					<tr>
+						<td>@s.Id</td>
+						<td><img width="40" src="~/assets/images/website-images/@s.LogoUrl"></td>
+						<td>@s.Title</td>
+						<td>@s.Desc</td>
+						<td><a class="btn btn-danger" asp-area="Manage" asp-controller="Shipping" asp-action="Delete" asp-route-id="@s.Id">Delete</a></td>
+						<td><a class="btn btn-info" asp-area="Manage" asp-controller="Shipping" asp-action="Update" asp-route-id="@s.Id">Update</a></td>
+					</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

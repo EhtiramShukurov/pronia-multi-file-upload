@@ -1,0 +1,37 @@
+﻿@model CreateSlideVM
+            <div class="container">
+              <div class="card mt-5">
+                <div class="card-body">
+                  <h4 class="card-title">Add Slide</h4>
+                  <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label asp-for="Offer">Offer</label>
+                      <input asp-for="Offer" class="form-control" placeholder="Offer">
+                      <span asp-validation-for="Offer" class="text-danger"></span>
+                    </div> 
+                    <div class="form-group">
+                      <label asp-for="Title">Title</label>
+                      <input asp-for="Title" class="form-control" placeholder="Title">
+                      <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="Image">Image</label>
+                      <input asp-for="Image" accept="image/*" class="form-control" placeholder="Image">
+                      <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="Desc">Description</label>
+                      <input asp-for="Desc" class="form-control" placeholder="Description">
+                      <span asp-validation-for="Desc" class="text-danger"></span>
+                    </div>                    
+                    <div class="form-group">
+                      <label asp-for="Order">Order</label>
+                      <input asp-for="Order" class="form-control" placeholder="Order">
+                      <span asp-validation-for="Order" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                  </form>
+                </div>
+              </div>
+            </div>

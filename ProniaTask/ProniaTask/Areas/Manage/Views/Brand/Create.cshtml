@@ -1,0 +1,17 @@
+﻿@model CreateBrandVM
+            <div class="container">
+              <div class="card mt-5">
+                <div class="card-body">
+                  <h4 class="card-title">Add Brand</h4>
+                  <form class="forms-sample" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                      <label asp-for="Image">Image</label>
+                      <input accept="image/*" asp-for="Image" class="form-control" placeholder="Image">
+                      <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                  </form>
+                </div>
+              </div>
+            </div>

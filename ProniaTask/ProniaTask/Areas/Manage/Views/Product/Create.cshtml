@@ -1,0 +1,74 @@
+﻿
+@model CreateProductVM
+            <div class="container">
+              <div class="card mt-5">
+                <div class="card-body">
+                  <h4 class="card-title">Add Product</h4>
+                  <form class="forms-sample" enctype="multipart/form-data" method="post">
+                    <div class="form-group">
+                      <label asp-for="Name">Name</label>
+                      <input asp-for="Name" class="form-control" placeholder="Name">
+                      <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>                    
+                    <div class="form-group">
+                      <label asp-for="CostPrice">CostPrice</label>
+                      <input asp-for="CostPrice" class="form-control" placeholder="CostPrice">
+                      <span asp-validation-for="CostPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="SellPrice">SellPrice</label>
+                      <input asp-for="SellPrice" class="form-control" placeholder="SellPrice">
+                      <span asp-validation-for="SellPrice" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="Discount">Discount</label>
+                      <input asp-for="Discount" class="form-control" placeholder="Discount">
+                      <span asp-validation-for="Discount" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="Description">Description</label>
+                      <input asp-for="Description" class="form-control" placeholder="Description">
+                      <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="CoverImage">CoverImage</label>
+                      <input accept="image/*" asp-for="CoverImage" class="form-control" placeholder="CoverImage">
+                      <span asp-validation-for="CoverImage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="HoverImage">HoverImage</label>
+                      <input accept="image/*" asp-for="HoverImage" class="form-control" placeholder="HoverImage">
+                      <span asp-validation-for="HoverImage" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="OtherImages">OtherImages</label>
+                      <input accept="image/*" asp-for="OtherImages" class="form-control" placeholder="OtherImages">
+                      <span asp-validation-for="OtherImages" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="CategoryIds"></label>
+                      <select class="form-control" asp-for="CategoryIds" asp-items="@ViewBag.Categories">
+                          <option disabled selected>Select a category</option>
+                      </select>
+                      <span asp-validation-for="CategoryIds" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="ColorIds"></label>
+                      <select class="form-control" asp-for="ColorIds" asp-items="@ViewBag.Colors">
+                          <option disabled selected>Select a color</option>
+                      </select>
+                      <span asp-validation-for="ColorIds" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="SizeIds"></label>
+                      <select class="form-control" asp-for="SizeIds" asp-items="@ViewBag.Sizes">
+                          <option disabled selected>Select a size</option>
+                      </select>
+                      <span asp-validation-for="SizeIds" class="text-danger"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary me-2">Submit</button>
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                  </form>
+                </div>
+              </div>
+            </div>

@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+@model CreateBannerVM
+            <div class="container">
+              <div class="card mt-5">
+                <div class="card-body">
+                  <h4 class="card-title">Add Banner</h4>
+                  <form class="forms-sample" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                      <label asp-for="Title">Title</label>
+                      <input asp-for="Title" class="form-control" placeholder="Title">
+                      <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="Image">Image</label>
+                      <input asp-for="Image" accept="image/*" class="form-control" placeholder="Image">
+                      <span asp-validation-for="Image" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                      <label asp-for="SecondaryTitle">Secondary Title</label>
+                      <input asp-for="SecondaryTitle" class="form-control" placeholder="SecondaryTitle">
+                      <span asp-validation-for="SecondaryTitle" class="text-danger"></span>
+                    </div>
+                @if (ViewBag.Count >= 4)
+                {
+                <button type="submit" disabled class="btn btn-primary me-2">Submit</button>
+                }
+                else
+                {
+                <button type="submit" class="btn btn-primary me-2">Submit</button>
+                }
+                    <a asp-action="Index" class="btn btn-light">Cancel</a>
+                  </form>
+                </div>
+              </div>
+            </div>
+

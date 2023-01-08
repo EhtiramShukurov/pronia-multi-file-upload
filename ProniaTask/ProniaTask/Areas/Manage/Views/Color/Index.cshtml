@@ -1,0 +1,27 @@
+﻿@model ICollection<Color>
+<div class="container">
+	<div class="card mt-5">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th colspan="2">Operation</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (Color b in Model)
+					{
+					<tr>
+						<td>@b.Id</td>
+						<td>@b.Name</td>
+						<td><a class="btn btn-danger" asp-area="Manage" asp-controller="Color" asp-action="Delete" asp-route-id="@b.Id">Delete</a></td>
+						<td><a class="btn btn-info" asp-area="Manage" asp-controller="Color" asp-action="Update" asp-route-id="@b.Id">Update</a></td>
+					</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

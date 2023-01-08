@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Product>
+<div class="container">
+	<div class="card mt-5">
+		<div class="table-responsive">
+			<table class="table table-striped table-bordered table-responsive">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Description</th>
+						<th>SKU</th>
+						<th>CostPrice</th>
+						<th>SellPrice</th>
+						<th>Discount</th>
+						<th>Status</th>
+						<th>Colors</th>
+						<th>Sizes</th>
+						<th>Categories</th>
+						<th>Cover Image</th>
+						<th colspan="2">Operation</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach (var p in Model)
+					{
+					<tr>
+						<td>@p.Id</td>
+						<td>@p.Name</td>
+						<td>@p.Description</td>
+						<td>@p.SKU</td>
+						<td>@p.CostPrice</td>
+						<td>@p.SellPrice</td>
+						<td>@p.Discount</td>
+						<td>@p.IsDeleted</td>
+						<td>
+							@foreach (var color in p?.ProductColors.Where(pc=>pc.ProductId == p.Id))
+							{
+								<span>@color.Color.Name.ToUpper()</span>
+							}
+							</td>
+						<td>
+							@foreach (var size in p?.ProductSizes.Where(ps=>ps.ProductId == p.Id))
+							{
+								<span>@size.Size.Name.ToUpper()</span>
+							}
+							</td>
+						<td>
+							@foreach (var category in p?.ProductCategories.Where(pc=>pc.ProductId == p.Id))
+							{
+								<span>@category.Category.Name.ToUpper()</span>
+							}
+							</td>
+						<td>@p?.ProductImages?.FirstOrDefault(pi=>pi.IsCover == true)</td>
+						<td><a class="btn btn-danger" asp-area="Manage" asp-controller="Product" asp-action="Delete" asp-route-id="@p.Id">Delete</a></td>
+						<td><a class="btn btn-info" asp-area="Manage" asp-controller="Product" asp-action="Update" asp-route-id="@p.Id">Update</a></td>
+					</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
